@@ -3,6 +3,7 @@ class Product {
   String name;
   String description;
   double unitPrice;
+  //int user_id;
 
   // {} it's name parameter and when you use this, your describe like this name:..., description:..., unitPrice:....
   Product({required this.name, required this.description, required this.unitPrice});
@@ -13,6 +14,7 @@ class Product {
     map["name"] = name;
     map["description"] = description;
     map["unitPrice"] = unitPrice;
+    //map["user_id"] = user_id;
     if (id != null) {
       map["id"] = id;
     }
@@ -20,10 +22,11 @@ class Product {
   }
 
   Product.fromObject(dynamic o) {
-    this.id = o["id"];
-    this.name = o["name"];
-    this.description = o["description"];
-    this.unitPrice = double.tryParse(o["unitPrice"].toString()); //buraya dikkat integer database neden tostring + double parse yapiliyor?
+    this.id = o["id"]!;
+    this.name = o["name"]!;
+    this.description = o["description"]!;
+    this.unitPrice = double.tryParse(o["unitPrice"].toString())!; //buraya dikkat integer database neden tostring + double parse yapiliyor?
+    //this.user_id = o["user_id"];
   }
 }
  

@@ -8,8 +8,9 @@ class User{
   int phoneNumber;
   double rate;
 
-  User({this.userName, this.firstName, this.lastName, this.password, this.email, this.phoneNumber,this.rate});
-  User.withId({this.id, this.userName, this.firstName, this.lastName, this.password, this.email, this.phoneNumber,this.rate});
+
+  User({required this.userName,required this.firstName,required this.lastName,required this.password,required this.email,required this.phoneNumber,required this.rate});
+  User.withId({required this.id,required this.userName,required this.firstName,required this.lastName,required this.password,required this.email,required this.phoneNumber,required this.rate});
 
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
@@ -35,7 +36,7 @@ class User{
     this.password = o["password"];
     this.email = o["email"];
     this.phoneNumber = o["phoneNumber"];
-    this.rate = double.tryParse(o["rate"].toString());
+    this.rate = double.tryParse(o["rate"].toString())!;
       
   }
 

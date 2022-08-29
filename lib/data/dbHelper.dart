@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:cek_goy/models/product.dart';
 import 'package:cek_goy/models/user.dart';
 import 'package:sqflite/sqflite.dart';
-
+import 'package:path/path.dart';
 class DbHelper{
 
-Database _db;
+late final Database _db;
 
   Future<Database> get db async {
     if (_db == null) {
@@ -48,6 +48,7 @@ Database _db;
     Database db = await this.db;
 
     var result = await db.insert("products",product.toMap());
+    return result;
   }
 
 
@@ -55,6 +56,7 @@ Database _db;
     Database db = await this.db;
 
     var result = await db.insert("users",user.toMap());
+    return result;
   }
 
 
