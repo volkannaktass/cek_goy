@@ -61,7 +61,10 @@ def getProductWithUserId(request,user_id):
             data['content']= i.content
             data['price'] = i.price
             data['created_date'] = i.created_date
-            data['productImage'] = i.productImage.url
+            if i.productImage:
+                data['productImage'] = i.productImage.url
+            else:
+                data['productImage'] = "None"
             dataList.append(data)
     print(dataList)
     return Response(dataList)
